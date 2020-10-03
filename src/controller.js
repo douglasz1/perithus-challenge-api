@@ -1,5 +1,7 @@
+const fs = require('fs');
 const { ClimaTempoAPIClient } = require('./climatempo');
 const CLIMATEMPO_TOKEN = process.env['CLIMATEMPO_TOKEN'] || '';
+const citiesJSON = JSON.parse( fs.readFileSync('./cities.json') );
 
 class Controller {
     constructor() {
@@ -12,7 +14,8 @@ class Controller {
     }
 
     async queryAvailableCities() {        
-        return await this.api.getCitiesList();
+        // return await this.api.getCitiesList();
+        return citiesJSON;
     }
 }
 
