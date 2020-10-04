@@ -17,6 +17,12 @@ class Controller {
         // return await this.api.getCitiesList();
         return citiesJSON;
     }
+
+    async queryCities(query) {  
+        // return await this.api.getCitiesList();
+        const re = new RegExp(`^${query.toLowerCase()}`);
+        return citiesJSON.filter( e => re.test(e.name.toLowerCase()) );
+    }
 }
 
 module.exports = { Controller };

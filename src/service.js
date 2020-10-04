@@ -25,6 +25,17 @@ class Service {
             res.send(error);
         }
     }
+
+    async queryCities(req, res) {
+        try {         
+            const { query } = req.params;
+            const result = await this.controller.queryCities(query);
+            res.json(result);
+        } catch (error) {
+            console.log(error);
+            res.send(error);
+        }
+    }
 }
 
 module.exports = { Service };
